@@ -26,7 +26,7 @@ gcloud beta run deploy SERVICE_NAME --image=gcr.io/endpoints-release/endpoints-r
 
 replace `SERVICE_NAME` and `PROJECT_ID`. Take note of the hostname in the URL.
 
-## Configure Google Cloud Endpoints
+## Configuring Google Cloud Endpoints
 
 1. Make a copy of `openapi-run.yaml.example` to `openapi-run.yaml`.
 2. Replace `my.esp.host` to your ESP hostname. **Don't** include the protocol identifier `https://`.
@@ -40,3 +40,13 @@ gcloud endpoints services deploy openapi-run.yaml --project PROJECT_ID
 ```
 
 replace `PROJECT_ID`.
+
+## Configuring Google ESP
+
+1. gcloud beta run services update `SERVICE_NAME` --set-env-vars ENDPOINTS_SERVICE_NAME=`HOST` --region us-central1 --project `PROJECT_ID`
+2. gcloud beta run services add-iam-policy-binding `BACKEND_SERVICE` --member serviceAccount:`PROJECT_NUMBER`-compute@developer.gserviceaccount.com --role roles/run.invoker --project `PROJECT_ID`
+
+- replace `SERVICE_NAME` to ESP service name.
+- replace `HOST` to cloud endpoints host.
+- replace `PROJECT_ID` and `PROJECT_NUMBER`.
+- replace `BACKEND_SERVICE` to your backend on Cloud Run.
