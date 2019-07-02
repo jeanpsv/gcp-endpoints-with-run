@@ -16,3 +16,12 @@ I will follow [this](https://cloud.google.com/endpoints/docs/openapi/get-started
 9. Check **Allow unauthenticated** invocations to be able to open the result in your web browser.
 10. Click **Create** to deploy the image to Cloud Run and wait for the deployment to finish.
 11. Click the displayed URL link to run the deployed container.
+
+## Deploying ESP container to Google Cloud Run
+
+Run the command:
+```bash
+gcloud beta run deploy SERVICE_NAME --image=gcr.io/endpoints-release/endpoints-runtime-serverless:1.30.0 --allow-unauthenticated --region=us-central1 --project=PROJECT_ID
+```
+
+replace `SERVICE_NAME` and `PROJECT_ID`. Take note of the hostname in the URL.
