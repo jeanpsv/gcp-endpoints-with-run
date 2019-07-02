@@ -25,3 +25,9 @@ gcloud beta run deploy SERVICE_NAME --image=gcr.io/endpoints-release/endpoints-r
 ```
 
 replace `SERVICE_NAME` and `PROJECT_ID`. Take note of the hostname in the URL.
+
+## Configure Google Cloud Endpoints
+
+1. Make a copy of `openapi-run.yaml.example` to `openapi-run.yaml`.
+2. Replace `my.esp.host` to your ESP hostname. **Don't** include the protocol identifier `https://`.
+3. Replace `https://my.backend.service.url` to your URL of your backend service
