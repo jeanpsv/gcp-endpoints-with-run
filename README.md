@@ -50,3 +50,12 @@ replace `PROJECT_ID`.
 - replace `HOST` to cloud endpoints host.
 - replace `PROJECT_ID` and `PROJECT_NUMBER`.
 - replace `BACKEND_SERVICE` to your backend on Cloud Run.
+
+## Invoking service
+
+Run a command:
+```bash
+curl --request GET --header "content-type:application/json" "https://${ENDPOINTS_HOST}/hello"
+```
+
+replace `${ENDPOINTS_HOST}` to host value on endpoints configuration.
